@@ -48,3 +48,7 @@ menor [x] = x
 menor (x:y:xs)  | x <= y = menor (x:xs)
                 | otherwise = menor (y:xs)
                 
+-- 16. função para inverso
+inversoDupla [] = []
+inversoDupla ((x,y):xs) = (y,x) : inversoDupla xs                  
+                
