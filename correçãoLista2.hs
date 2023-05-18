@@ -1,3 +1,5 @@
+import Data.Char
+
 listac2 = [x^3|x<-[1..8]]
 
 duplicalist [] = []
@@ -91,13 +93,13 @@ inversoDupla ((x,y):xs) = (y,x) : inversoDupla xs
                 
 --17
 simetrico [] = []
-simetrico ((a,b):xs) |(a==b) = True : simetrico xs
+simetrico ((a,b):xs) |a==b = True : simetrico xs
                      |otherwise = False : simetrico xs
 
 --18
 numString' 0 = []
 numString' n = chr ((rem n 10) +48) : numString' (div n 10)
-numString n = inverso (numString' n)
+numString n = invertlist (numString' n)
 
 --19
 stringNum' [] = []
@@ -111,7 +113,7 @@ decBin' 0 = [0]
 decBin' 1 = [1]
 decBin' n | mod n 2 == 1 = 1 : decBin' (div n 2)
           | mod n 2 == 0 = 0 : decBin' (div n 2)
-decBin'' n = inverso (decBin' n)
+decBin'' n = invertlist (decBin' n)
 decBin n = numString (stringNum'' (decBin'' n))
 
 --21
